@@ -16,17 +16,16 @@ import com.example.todo.task.TaskDao;
 import java.util.List;
 
 public class ListTaskActivity extends AppCompatActivity {
-
-    private RecyclerView recyclerView;
     private TaskAdapter taskAdapter;
     private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_list_task);
 
-        recyclerView = findViewById(R.id.recycler_view_tasks);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_tasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         try {

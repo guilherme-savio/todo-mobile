@@ -16,7 +16,6 @@ public interface TaskDao {
     @Query("SELECT * FROM task WHERE uid IN (:taskIds)")
     List<Task> loadAllByIds(int[] taskIds);
 
-
     @Insert
     void insertAll(Task... task);
 

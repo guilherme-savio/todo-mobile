@@ -2,7 +2,6 @@ package com.example.todo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,12 +12,9 @@ import androidx.room.Room;
 import com.example.todo.R;
 import com.example.todo.database.AppDatabase;
 import com.example.todo.task.Task;
-import com.example.todo.task.TaskDao;
 
 public class CreateTaskActivity extends AppCompatActivity {
-
     private EditText edtTaskName, edtTaskDescription;
-    private Button btnSaveTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +23,9 @@ public class CreateTaskActivity extends AppCompatActivity {
 
         edtTaskName = findViewById(R.id.edt_task_name);
         edtTaskDescription = findViewById(R.id.edt_task_description);
-        btnSaveTask = findViewById(R.id.btn_save_task);
+        Button btnSaveTask = findViewById(R.id.btn_save_task);
 
-        btnSaveTask.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveTask();
-            }
-        });
+        btnSaveTask.setOnClickListener(v -> saveTask());
     }
 
     private void saveTask() {
@@ -59,6 +50,5 @@ public class CreateTaskActivity extends AppCompatActivity {
             edtTaskDescription.setText("");
             startActivity(new Intent(CreateTaskActivity.this, ListTaskActivity.class));
         }
-
     }
 }
